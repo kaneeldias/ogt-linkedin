@@ -4,7 +4,10 @@
     include_once "sheets.php";
     include_once "drive.php";
 
-    if (!isset($_POST['first_name']) ||
+    $output = json_encode(array('type' => 'success', 'text' => "Details successfully submitted."));
+    die($output);
+
+if (!isset($_POST['first_name']) ||
         !isset($_POST['last_name']) ||
         !isset($_POST['email']) ||
         !isset($_POST['phone']) ||

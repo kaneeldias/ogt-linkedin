@@ -3,6 +3,8 @@ github_access_token
 .git/
 credentials.json
 config.php
+test.pdf
+test.txt
 
 vendor/bin/*
 vendor/composer/*

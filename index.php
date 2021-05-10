@@ -19,7 +19,7 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Title Page-->
     <title>Sign Up</title>
-    <link rel="shortcut icon" type="image/png" href="Favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -51,11 +51,11 @@
 <!-- End Google Tag Manager (noscript) -->
 
 <div class="page-wrapper bg-gra-03 p-t-100 p-b-100 font-poppins" style="background: linear-gradient(to top right, #0CB9C1 0%, #0CB9C1 100%);">
-    <center><img src="Aiesecwhiteblue.png" alt="Smiley face" class="responsive" onclick="window.location='https://www.aiesec.lk';" > </center><br><br>
+    <center><img src="ogt.png" alt="Smiley face" class="responsive" onclick="window.location='https://www.aiesec.lk';" > </center><br><br>
     <div class="wrapper wrapper--w680">
         <div class="card card-4">
             <div class="card-body">
-                <center><h2 class="title"  style="color:#0CB9C1;"> Global Talent Sign Up</h2></center>
+                <center><h1 class="title"  style="color:#0CB9C1; font-size:30px; font-weight:bold"> GLOBAL TALENT APPLICATION</h1></center>
                 <form id='signup_form' enctype="multipart/form-data">
                     <div class="row row-space">
                         <div class="col-2">
@@ -126,7 +126,7 @@
 
                     <div class="g-recaptcha" data-sitekey="6LfddL4UAAAAAH5VDHI75ZzDmn3M6hIAiVyOf7gz"></div>
                     <div class="p-t-15">
-                        <button class="btn btn--radius-2 btn--gt" style="background: #0CB9C1;" name="submit" type="submit">Sign Up
+                        <button class="btn btn--radius-2 btn--gt" style="background: #0CB9C1;" name="submit" type="submit">Apply
 
                         </button>
                     </div>
@@ -184,7 +184,7 @@
                                 title: "Incomplete Form",
                                 text: "Your form was incomplete. Please re-check.",
                                 type: "error",
-                                confirmButtonText: "Cool"
+                                confirmButtonText: "OK"
                             });
                         }
 
@@ -193,10 +193,12 @@
                     if (response.type === "success") {
                         Swal.fire({
                             title: "Success!",
-                            text: response.text,
+                            text: "Someone from our team will be in touch with you shortly.",
                             type: "success",
-                            confirmButtonText: "Cool"
-                        });
+                            confirmButtonText: "OK"
+                        }).then((result) => {
+                            window.location.href = "confirmed.php";
+                        })
                     }
                 },
                 cache: false,
