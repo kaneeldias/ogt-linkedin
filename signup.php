@@ -2,6 +2,7 @@
 
     include_once "config.php";
     include_once "sheets.php";
+    include_once "drive.php";
 
     if (!isset($_POST['first_name']) ||
         !isset($_POST['last_name']) ||
@@ -24,7 +25,7 @@
     $phone = $_POST['phone'];
 
     $education = $_POST['education'];
-    $cv = $_FILES['cv'];
+    $cv = file_get_contents($_FILES['cv']['tmp_name']);
     $entity = $_POST['entity'];
     $gcaptcha = $_POST['g-recaptcha-response'];
 
@@ -55,12 +56,19 @@
         die($output);
     }
     */
+    //$timestamp =
+    $date = new DateTime("now", new DateTimeZone('Asia/Colombo') );
+    $timestamp = $date->format('Y-m-d H:i:s');
 
-    $res = append([[$first_name, $last_name, $email, $phone, $education]], $entity);
+    $url = upload($cv, $first_name, $last_name, $entity, $timestamp);
 
-    // if number of cells appended = 5
-    if ($res == 1) {
+    $res = append([[$timestamp, $first_name, $last_name, $email, $phone, $education, $url]], $entity);
+
+    if ($res) {
         $output = json_encode(array('type' => 'success', 'text' => "Details successfully submitted."));
+        die($output);
+    } else{
+        $output = json_encode(array('type' => 'fail', 'text' => "An unknown error occurred."));
         die($output);
     }
 

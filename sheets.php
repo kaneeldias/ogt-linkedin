@@ -7,7 +7,7 @@ $client->setApplicationName('Google Sheets and PHP');
 $client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
 $client->setAccessType('offline');
 $client->setAuthConfig(__DIR__ . '/credentials.json');
-$service = new Google_Service_Sheets($client);
+$sheet_service = new Google_Service_Sheets($client);
 
 $spreadsheetIds = [
     'CC' => "15Ts37hFoveRIf9SP8gUWeTlBgxCIUOp4VtednMRWTI8",
@@ -23,7 +23,7 @@ $spreadsheetId = "18YJN97bZAyqZJZ04gd7TbyHhNm3_klvuJDG-ApMaPwQ";
 
 function append($values, $entity){
 
-    global $service;
+    global $sheet_service;
     global $spreadsheetId;
     global $spreadsheetIds;
 
@@ -41,10 +41,12 @@ function append($values, $entity){
 
     $range = 'Sign-Ups';
 
-    $result = $service->spreadsheets_values->append($spreadsheetId, $range, $body, $params);
-    if($result->getUpdates()->getUpdatedCells() == 5){
+    $result = $sheet_service->spreadsheets_values->append($spreadsheetId, $range, $body, $params);
+    if($result->getUpdates()->getUpdatedCells() == 7){
         return true;
     }
+
+    return false;
 
 }
 
