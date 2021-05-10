@@ -62,6 +62,7 @@
                             <div class="input-group">
                                 <label class="label">First Name</label>
                                 <input class="input--style-4" type="text" name="first_name" required >
+                                <input type="hidden" name="entity" value="<?=$_GET['entity']?>" required >
                             </div>
                         </div>
                         <div class="col-2">
@@ -167,9 +168,9 @@
 
                     let response = JSON.parse(data)
 
-                    if (response.type === "fail"){
+                    if (response.type === "fail") {
 
-                        if (response.text === "Captcha invalid"){
+                        if (response.text === "Captcha invalid") {
                             Swal.fire({
                                 title: "Captcha Invalid",
                                 text: "Your Captcha was invalid. Please try again.",
@@ -178,7 +179,7 @@
                             });
                         }
 
-                        if (response.text === "Incomplete form"){
+                        if (response.text === "Incomplete form") {
                             Swal.fire({
                                 title: "Incomplete Form",
                                 text: "Your form was incomplete. Please re-check.",
@@ -189,6 +190,14 @@
 
                     }
 
+                    if (response.type === "success") {
+                        Swal.fire({
+                            title: "Success!",
+                            text: response.text,
+                            type: "success",
+                            confirmButtonText: "Cool"
+                        });
+                    }
                 },
                 cache: false,
                 contentType: false,

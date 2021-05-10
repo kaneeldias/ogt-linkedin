@@ -1,7 +1,7 @@
 <?php
 
     include_once "config.php";
-    include_once "tet.php";
+    include_once "sheets.php";
 
     if (!isset($_POST['first_name']) ||
         !isset($_POST['last_name']) ||
@@ -12,7 +12,11 @@
         !isset($_POST['g-recaptcha-response'])){
         $output = json_encode(array('type' => 'fail', 'text' => "Incomplete form"));
         die($output);
-}
+    }
+
+    if (!isset($_POST['entity'])){
+        $_POST['entity'] = 1;
+    }
 
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
@@ -21,6 +25,7 @@
 
     $education = $_POST['education'];
     $cv = $_FILES['cv'];
+    $entity = $_POST['entity'];
     $gcaptcha = $_POST['g-recaptcha-response'];
 
     $url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -51,7 +56,13 @@
     }
     */
 
-    echo append([[$first_name, $last_name, $email, $phone, $education]])
+    $res = append([[$first_name, $last_name, $email, $phone, $education]], $entity);
+
+    // if number of cells appended = 5
+    if ($res == 1) {
+        $output = json_encode(array('type' => 'success', 'text' => "Details successfully submitted."));
+        die($output);
+    }
 
 
 
