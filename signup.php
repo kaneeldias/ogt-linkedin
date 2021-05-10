@@ -4,7 +4,7 @@
     include_once "sheets.php";
     include_once "drive.php";
 
-if (!isset($_POST['first_name']) ||
+    if (!isset($_POST['first_name']) ||
         !isset($_POST['last_name']) ||
         !isset($_POST['email']) ||
         !isset($_POST['phone']) ||
