@@ -92,7 +92,7 @@
                         <div class="input-group col-2">
                             <label class="label">Educational Qualification</label>
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="education" value="" required >
+                                <select name="education" value="" required>
                                     <option disabled="disabled" selected="selected" hidden>Choose option</option>
                                     <option value="Undergraduate">Undergraduate</option>
                                     <option value="Bachelor's Degree">Bachelor's Degree</option>
@@ -160,10 +160,34 @@
             var formData = new FormData(this);
 
             $.ajax({
-                url: window.location.pathname,
+                url: 'signup.php',
                 type: 'POST',
                 data: formData,
                 success: function (data) {
+
+                    let response = JSON.parse(data)
+
+                    if (response.type === "fail"){
+
+                        if (response.text === "Captcha invalid"){
+                            Swal.fire({
+                                title: "Captcha Invalid",
+                                text: "Your Captcha was invalid. Please try again.",
+                                type: "error",
+                                confirmButtonText: "OK"
+                            });
+                        }
+
+                        if (response.text === "Incomplete form"){
+                            Swal.fire({
+                                title: "Incomplete Form",
+                                text: "Your form was incomplete. Please re-check.",
+                                type: "error",
+                                confirmButtonText: "Cool"
+                            });
+                        }
+
+                    }
 
                 },
                 cache: false,
