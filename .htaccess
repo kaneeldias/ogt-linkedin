@@ -1,0 +1,24 @@
+<Files *>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files index.php>
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+<Files confirmation.php>
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+<Files ogt.png>
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+<Files ogt.png>
+    Order Allow,Deny
+    Allow from all
+</Files>
