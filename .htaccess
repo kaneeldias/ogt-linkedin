@@ -13,12 +13,13 @@
     Allow from all
 </Files>
 
-<Files ogt.png>
+<Files />
     Order Allow,Deny
     Allow from all
 </Files>
 
-<Files ogt.png>
+# Except root
+<FilesMatch "^$">
     Order Allow,Deny
     Allow from all
-</Files>
+</FilesMatch>
