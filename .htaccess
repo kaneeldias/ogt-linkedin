@@ -8,6 +8,11 @@
     Allow from all
 </Files>
 
+<Files signup.php>
+    Order Allow,Deny
+    Allow from all
+</Files>
+
 <Files confirmation.php>
     Order Allow,Deny
     Allow from all
