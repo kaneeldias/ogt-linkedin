@@ -41,6 +41,11 @@ function append($values, $entity){
 
     $range = 'Sign-Ups';
 
+    //Append to all sheet
+    $result = $sheet_service->spreadsheets_values->append("17CrbJe5ewkkbXA6rnkzxB7Qo4juoi29MzO6yV-r2icU",
+        $range, $body, $params);
+
+    //Append to entity sheet (or other)
     $result = $sheet_service->spreadsheets_values->append($spreadsheetId, $range, $body, $params);
     if($result->getUpdates()->getUpdatedCells() == 7){
         return true;
