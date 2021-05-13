@@ -148,14 +148,14 @@ width:100%; height:100%; z-index:999; text-align: center; vertical-align: middle
                     <div class="row row-space">
                         <div class="col-2">
                             <div class="input-group">
-                                <label class="label">First Name</label>
+                                <label class="label">First Name<span class="required_field"> *</span></label>
                                 <input class="input--style-4" type="text" name="first_name" required >
                                 <input type="hidden" name="entity" value="<?=$entity?>" required >
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="input-group">
-                                <label class="label">Last Name</label>
+                                <label class="label">Last Name<span class="required_field"> *</span></label>
                                 <input class="input--style-4" type="text" name="last_name" required >
                             </div>
                         </div>
@@ -167,19 +167,19 @@ width:100%; height:100%; z-index:999; text-align: center; vertical-align: middle
                     <div class="row row-space">
                         <div class="col-2">
                             <div class="input-group">
-                                <label class="label">Email</label>
+                                <label class="label">Email<span class="required_field"> *</span></label>
                                 <input class="input--style-4" type="email" name="email" required >
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="input-group">
-                                <label class="label">Phone Number</label>
+                                <label class="label">Phone Number<span class="required_field"> *</span></label>
                                 <input class="input--style-4" type="tel" placeholder="07xxxxxxxx" name="phone" pattern="[0][0-9]{9}" required>
                             </div>
                         </div>
 
                         <div class="input-group col-2">
-                            <label class="label">Educational Qualification</label>
+                            <label class="label">Educational Qualification<span class="required_field"> *</span></label>
                             <div class="rs-select2 js-select-simple select--no-search">
                                 <select name="education" value="" required>
                                     <option disabled="disabled" selected="selected" hidden>Choose option</option>
