@@ -34,6 +34,7 @@ function upload($data, $first_name, $last_name, $entity, $timestamp){
     global $driveId;
     global $drive_service;
 
+    //Upload to all CVs folder
     $file = new Google_Service_Drive_DriveFile($client);
     $file->setName($first_name." ".$last_name." ".date("Y-m-d H:i:s").'.pdf');
     $file->setMimeType('application/pdf');
@@ -44,7 +45,7 @@ function upload($data, $first_name, $last_name, $entity, $timestamp){
         'uploadType' => 'media',
     ));
 
-
+    //Upload to entity CV folder (or other)
     $file = new Google_Service_Drive_DriveFile($client);
     $file->setName($first_name." ".$last_name." ".$timestamp.'.pdf');
     $file->setMimeType('application/pdf');
