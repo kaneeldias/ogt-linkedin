@@ -195,7 +195,7 @@ width:100%; height:100%; z-index:999; text-align: center; vertical-align: middle
                         <div class="input-group col-2">
                             <div class="input-group">
                                 <label class="label">Upload your CV</label>
-                                <input id="cv" class="input--style-4" type="file" name="cv" accept=".pdf" required>
+                                <input id="cv" class="input--style-4" type="file" name="cv" accept=".pdf">
                             </div>
                         </div>
 

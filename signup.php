@@ -25,7 +25,10 @@
     $phone = $_POST['phone'];
 
     $education = $_POST['education'];
-    $cv = file_get_contents($_FILES['cv']['tmp_name']);
+
+    if ($_FILES['cv']['tmp_name'] != ""){
+        $cv = file_get_contents($_FILES['cv']['tmp_name']);
+    }
     $entity = $_POST['entity'];
     $gcaptcha = $_POST['g-recaptcha-response'];
 
@@ -56,11 +59,14 @@
         die($output);
     }
     */
-    //$timestamp =
+
     $date = new DateTime("now", new DateTimeZone('Asia/Colombo') );
     $timestamp = $date->format('Y-m-d H:i:s');
 
-    $url = upload($cv, $first_name, $last_name, $entity, $timestamp);
+    $url = "Not provided";
+    if (isset($cv)){
+        $url = upload($cv, $first_name, $last_name, $entity, $timestamp);
+    }
 
     $res = append([[$timestamp, $first_name, $last_name, $email, $phone, $education, $url]], $entity);
 
