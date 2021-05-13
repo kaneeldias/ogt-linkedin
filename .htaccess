@@ -28,3 +28,9 @@
     Order Allow,Deny
     Allow from all
 </FilesMatch>
+
+# add trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .*[^/]$ $0/ [L,R=301]
+
