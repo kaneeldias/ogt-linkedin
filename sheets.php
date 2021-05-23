@@ -35,6 +35,12 @@ function append($values, $entity){
         'values' => $values
     ]);
 
+    $all_values = $values;
+    array_splice( $all_values[0], 1, 0, [$entity] ); // splice in at position 3
+    $all_body = new Google_Service_Sheets_ValueRange([
+        'values' => $all_values
+    ]);
+
     $params = [
         'valueInputOption' => 'USER_ENTERED'
     ];
@@ -43,11 +49,11 @@ function append($values, $entity){
 
     //Append to all sheet
     $result = $sheet_service->spreadsheets_values->append("17CrbJe5ewkkbXA6rnkzxB7Qo4juoi29MzO6yV-r2icU",
-        $range, $body, $params);
+        $range, $all_body, $params);
 
     //Append to entity sheet (or other)
     $result = $sheet_service->spreadsheets_values->append($spreadsheetId, $range, $body, $params);
-    if($result->getUpdates()->getUpdatedCells() == 7){
+    if($result->getUpdates()->getUpdatedCells() == 8){
         return true;
     }
 

@@ -4,7 +4,8 @@
     include_once "sheets.php";
     include_once "drive.php";
 
-    if (!isset($_POST['first_name']) ||
+    if (!isset($_POST['product']) ||
+        !isset($_POST['first_name']) ||
         !isset($_POST['last_name']) ||
         !isset($_POST['email']) ||
         !isset($_POST['phone']) ||
@@ -16,9 +17,10 @@
     }
 
     if (!isset($_POST['entity'])){
-        $_POST['entity'] = 1;
+        $_POST['entity'] = "Others";
     }
 
+    $product = $_POST['product'];
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
@@ -68,7 +70,7 @@
         $url = upload($cv, $first_name, $last_name, $entity, $timestamp);
     }
 
-    $res = append([[$timestamp, $first_name, $last_name, $email, $phone, $education, $url]], $entity);
+    $res = append([[$timestamp, $product, $first_name, $last_name, $email, $phone, $education, $url]], $entity);
 
     if ($res) {
         $output = json_encode(array('type' => 'success', 'text' => "Details successfully submitted."));

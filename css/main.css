@@ -672,3 +672,7 @@ input {
     padding: 50px 40px;
   }
 }
+
+.required_field{
+  color:red;
+}
