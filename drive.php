@@ -25,8 +25,6 @@ $client->setAccessType('offline');
 $client->setAuthConfig(__DIR__ . '/credentials.json');
 $drive_service = new Google_Service_Drive($client);
 
-$data = file_get_contents("test.pdf");
-
 function upload($data, $first_name, $last_name, $entity, $timestamp){
 
     global $client;

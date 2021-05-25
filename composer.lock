@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ec4684dca7c3a77080fa9a89a0189f4",
+    "content-hash": "229947ff875ac1698394287147e4e188",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -118,16 +118,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.174.0",
+            "version": "v0.176.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "004c5280f5a26a8acbb6f6af6a792e4872b7648a"
+                "reference": "316cbf9b02c575a140d8cbeca48a3ca0070fcd5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/004c5280f5a26a8acbb6f6af6a792e4872b7648a",
-                "reference": "004c5280f5a26a8acbb6f6af6a792e4872b7648a",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/316cbf9b02c575a140d8cbeca48a3ca0070fcd5a",
+                "reference": "316cbf9b02c575a140d8cbeca48a3ca0070fcd5a",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.174.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.176.0"
             },
-            "time": "2021-05-08T11:20:03+00:00"
+            "time": "2021-05-15T11:18:02+00:00"
         },
         {
             "name": "google/auth",
@@ -843,7 +843,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-json": "*"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }

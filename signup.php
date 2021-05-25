@@ -1,5 +1,8 @@
 <?php
 
+    header('Access-Control-Allow-Origin: *');
+
+
     include_once "config.php";
     include_once "sheets.php";
     include_once "drive.php";

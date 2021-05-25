@@ -1,11 +1,16 @@
 <?php
+
 $entity = "Other";
 if (isset($_GET['entity'])){
     $entity = $_GET['entity'];
 }
 
-?>
+$base = "https://aiesec.lk/linkedin/";
+if ($_SERVER['SERVER_NAME'] == "localhost"){
+    $base = "https://localhost/aiesec.lk/linkedin/";
+}
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +23,6 @@ if (isset($_GET['entity'])){
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-MFQGDFB');</script>
     <!-- End Google Tag Manager -->
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="AIESEC Global Talent Sign Up">
 
@@ -27,6 +31,7 @@ if (isset($_GET['entity'])){
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Title Page-->
     <title>Sign Up</title>
+    <BASE href="<?= $base ?>">
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -40,7 +45,7 @@ if (isset($_GET['entity'])){
     <style>
 
         body{
-            background-image:url("assets/background.png");
+            background-image:url("assets/<?= $background ?>");
             background-size:auto 120%;
             background-color:white;
             background-repeat: no-repeat;
@@ -65,7 +70,7 @@ width:100%; height:100%; z-index:999; text-align: center; vertical-align: middle
             <div class="ldio-18ldoi6nwr4">
                 <div></div><div><div></div></div>
             </div></div>
-        <div style="color:#0cb9c1; font-size:20px; font-weight:bold;">Please wait while we process your information.</div>
+        <div style="color:<?=$color?>; font-size:20px; font-weight:bold;">Please wait while we process your information.</div>
     </div>
     <style type="text/css">
 
@@ -91,7 +96,7 @@ width:100%; height:100%; z-index:999; text-align: center; vertical-align: middle
             left: 28px;
             border-radius: 50%;
             border: 16px solid #000;
-            border-color: #0cb9c1 transparent #0cb9c1 transparent;
+            border-color: <?=$color?> transparent <?=$color?> transparent;
             animation: ldio-18ldoi6nwr4 1s linear infinite;
         }
         .ldio-18ldoi6nwr4 > div:nth-child(2) { border-color: transparent }
@@ -109,14 +114,14 @@ width:100%; height:100%; z-index:999; text-align: center; vertical-align: middle
             height: 16px;
             top: -16px;
             left: 48px;
-            background: #0cb9c1;
+            background: <?=$color?>;
             border-radius: 50%;
-            box-shadow: 0 128px 0 0 #0cb9c1;
+            box-shadow: 0 128px 0 0 <?=$color?>;
         }
         .ldio-18ldoi6nwr4 > div:nth-child(2) div:after {
             left: -16px;
             top: 48px;
-            box-shadow: 128px 0 0 0 #0cb9c1;
+            box-shadow: 128px 0 0 0 <?=$color?>;
         }
         .loadingio-spinner-dual-ring-lwapedn49g {
             width: 200px;
@@ -139,18 +144,18 @@ width:100%; height:100%; z-index:999; text-align: center; vertical-align: middle
 </div>
 
 <div class="page-wrapper font-poppins" style="padding-top:80px">
-    <center><img src="assets/ogtw.png" alt="Smiley face" class="responsive" style="width:300px;"> </center><br><br>
+    <center><img src="assets/<?= $logo ?>" alt="Smiley face" class="responsive" style="width:300px;"> </center><br><br>
     <div class="wrapper wrapper--w680">
         <div class="card card-4">
-            <div class="card-body" style="border-bottom-style: solid; border-color:#0cb9c1; border-width:20px; border-radius:5px; padding-top:40px;">
-                <center><h1 class="title"  style="color:#0CB9C1; font-size:30px; font-weight:bold"  > GLOBAL TALENT APPLICATION</h1></center>
+            <div class="card-body" style="border-bottom-style: solid; border-color:<?=$color?>; border-width:20px; border-radius:5px; padding-top:40px;">
+                <center><h1 class="title"  style="color:<?=$color?>; font-size:30px; font-weight:bold"  > GLOBAL TALENT APPLICATION</h1></center>
                 <form id='signup_form' enctype="multipart/form-data">
                     <div class="row row-space">
                         <div class="col-2">
                             <div class="input-group">
                                 <label class="label">First Name<span class="required_field"> *</span></label>
                                 <input class="input--style-4" type="text" name="first_name" required >
-                                <input type="hidden" name="product" value="oGTa" required >
+                                <input type="hidden" name="product" value="<?= $product ?>" required >
                                 <input type="hidden" name="entity" value="<?=$entity?>" required >
                             </div>
                         </div>
@@ -209,7 +214,7 @@ width:100%; height:100%; z-index:999; text-align: center; vertical-align: middle
                                 <input type="checkbox" class="checkmark input-icon"  required>
                                 <label class="label" style="padding-left: 40px; padding-top: 5px; font-size:14px;">
                                     I have read and agree to AIESEC Sri Lanka's
-                                    <a href="https://aiesec.lk/privacy-policy" target="_blank" style="color:#0CB9C1">Privacy Policy</a>
+                                    <a href="https://aiesec.lk/privacy-policy" target="_blank" style="color:<?=$color?>">Privacy Policy</a>
                                     and I may be contacted by AIESEC representatives for further processing.</label>
                             </div>
                         </div>
@@ -217,7 +222,7 @@ width:100%; height:100%; z-index:999; text-align: center; vertical-align: middle
 
                     <div class="g-recaptcha" data-sitekey="6LfddL4UAAAAAH5VDHI75ZzDmn3M6hIAiVyOf7gz"></div>
                     <div class="p-t-15">
-                        <button class="btn btn--radius-2 btn--gt" style="background: #0CB9C1;" name="submit" type="submit">Apply
+                        <button class="btn btn--radius-2 btn--gt" style="background: <?=$color?>;" name="submit" type="submit">Apply
 
                         </button>
                     </div>
@@ -297,7 +302,7 @@ width:100%; height:100%; z-index:999; text-align: center; vertical-align: middle
                             type: "success",
                             confirmButtonText: "OK"
                         }).then((result) => {
-                            //window.location.href = "confirmed.php";
+                            window.location.href = "https://aiesec.lk/";
                         })
                     }
 
