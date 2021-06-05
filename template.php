@@ -5,6 +5,11 @@ if (isset($_GET['entity'])){
     $entity = $_GET['entity'];
 }
 
+$track = "";
+if (isset($_GET['track'])){
+    $track = $_GET['track'];
+}
+
 $base = "https://aiesec.lk/linkedin/";
 if ($_SERVER['SERVER_NAME'] == "localhost"){
     $base = "https://localhost/aiesec.lk/linkedin/";
@@ -157,6 +162,7 @@ width:100%; height:100%; z-index:999; text-align: center; vertical-align: middle
                                 <input class="input--style-4" type="text" name="first_name" required >
                                 <input type="hidden" name="product" value="<?= $product ?>" required >
                                 <input type="hidden" name="entity" value="<?=$entity?>" required >
+                                <input type="hidden" name="track" value="<?=$track?>" required >
                             </div>
                         </div>
                         <div class="col-2">

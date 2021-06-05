@@ -23,6 +23,10 @@
         $_POST['entity'] = "Others";
     }
 
+    if (!isset($_POST['track'])){
+        $_POST['track'] = "";
+    }
+
     $product = $_POST['product'];
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
@@ -35,6 +39,7 @@
         $cv = file_get_contents($_FILES['cv']['tmp_name']);
     }
     $entity = $_POST['entity'];
+    $track = $_POST['track'];
     $gcaptcha = $_POST['g-recaptcha-response'];
 
     $url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -73,7 +78,7 @@
         $url = upload($cv, $first_name, $last_name, $entity, $timestamp);
     }
 
-    $res = append([[$timestamp, $product, $first_name, $last_name, $email, $phone, $education, $url]], $entity);
+    $res = append([[$timestamp, $product, $first_name, $last_name, $email, $phone, $education, $url, $track]], $entity);
 
     if ($res) {
         $output = json_encode(array('type' => 'success', 'text' => "Details successfully submitted."));
